@@ -604,7 +604,10 @@ func (c *MachineConfig) GetIPAddressByMac() string {
 
 		// Check if the line contains a MAC address
 		if strings.Contains(line, "hw_address") {
-			mac = strings.Split(strings.Fields(line)[0], "hw_address=1,")[1]
+			hw_len = strings.Split(strings.Fields(line)[0], "hw_address=1,")
+			if len(hw_len) != 1 {
+				mac = strings.Split(strings.Fields(line)[0], "hw_address=1,")[1]
+				}
 		}
 
 		if mac == c.MACAddress {
