@@ -584,7 +584,7 @@ func (c *MachineConfig) Start() error {
 func (c *MachineConfig) GetIPAddressByMac() string {
 	ip := ""
 	mac := ""
-	hw_len := ""
+	hw_len := []string
 	
 	file, err := os.Open("/var/db/dhcpd_leases")
 
