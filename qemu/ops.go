@@ -389,7 +389,7 @@ func (c *MachineConfig) Start() error {
 	networkDevice := "user,id=net0,hostfwd=tcp::" + c.SSHPort + "-:22"
 
 	if c.VMNet {
-		networkDevice = "vmnet-bridged,id=net0,ifname=en0"
+		networkDevice = "vmnet-shared,id=net0"
 
 		if c.MACAddress == "" {
 			macAddress, err := utils.GenerateMACAddress()
